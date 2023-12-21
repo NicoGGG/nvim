@@ -263,9 +263,31 @@ require("lazy").setup({
                 end
             }
         },
-        {
+    {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
         opts = {} -- this is equalent to setup({}) function
+    },
+    {
+        'numToStr/Comment.nvim',
+        opts = {
+            -- add any options here
+        },
+        lazy = false,
+    },
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = { "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+        },
+        -- keys = function()
+        --     require("neotree").setup()
+        --     return {
+        --         { "<leader>nt", vim.cmd.Neotree },
+        --         { "<leader>nt", vim.cmd.Neotree {"filesystem", "close"} },
+        --     }
+        -- end,
     }
 })
