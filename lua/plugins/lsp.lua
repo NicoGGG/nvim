@@ -89,21 +89,39 @@ return {
         config = function()
             -- This is where all the LSP shenanigans will live
             local lsp_zero = require('lsp-zero')
-            lsp_zero.set_sign_icons({
-                error = '✘',
-                warn = '▲',
-                hint = '⚑',
-                info = '»'
-            })
             lsp_zero.extend_lspconfig()
 
             lsp_zero.on_attach(function(client, bufnr)
                 -- see :help lsp-zero-keybindings
                 -- to learn the available actions
                 lsp_zero.default_keymaps({buffer = bufnr})
+                vim.keymap.set({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, {})
+                vim.keymap.set("n", "<leader>df", vim.diagnostic.open_float)
+
+                -- Configure auto format => see format plugin for config
+                local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+                if client.supports_method("textDocument/formatting") then
+                    vim.api.nvim_clear_autocmds({
+                        group = augroup,
+                        buffer = bufnr,
+                    })
+                    vim.api.nvim_create_autocmd("BufWritePre", {
+                        group = augroup,
+                        buffer = bufnr,
+                        callback = function()
+                            vim.lsp.buf.format({ bufnr = bufnr })
+                        end,
+                    })
+                end
             end)
+            lsp_zero.set_sign_icons({
+                error = '✘',
+                warn = '▲',
+                hint = '⚑',
+                info = '»'
+            })
             require('mason-lspconfig').setup({
-                ensure_installed = {"lua_ls", "pyright"},
+                ensure_installed = {"lua_ls", "pyright", "gopls"},
                 handlers = {
                     lsp_zero.default_setup,
                     lua_ls = function()
@@ -113,7 +131,7 @@ return {
                     end,
                 }
             })
-        end
+        end,
     }
 }
 
