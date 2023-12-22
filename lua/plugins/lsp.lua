@@ -118,7 +118,7 @@ return {
                 info = '»'
             })
             require('mason-lspconfig').setup({
-                ensure_installed = { "lua_ls", "pyright", "gopls" },
+                ensure_installed = { "lua_ls", "pyright", "gopls", "marksman", "bashls" },
                 handlers = {
                     lsp_zero.default_setup,
                     lua_ls = function()
