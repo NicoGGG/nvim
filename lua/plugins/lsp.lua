@@ -21,12 +21,7 @@ return {
         'hrsh7th/nvim-cmp',
         event = 'InsertEnter',
         dependencies = {
-            {'L3MON4D3/LuaSnip'},
-            {
-                'zbirenbaum/copilot.lua',
-                cmd = "Copilot",
-                event = "InsertEnter",
-            },
+            { 'L3MON4D3/LuaSnip' },
         },
         config = function()
             -- Here is where you configure the autocompletion settings.
@@ -53,7 +48,8 @@ return {
                         if cmp.visible() then
                             cmp.select_next_item()
                         elseif require("luasnip").expand_or_jumpable() then
-                            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+                            vim.fn.feedkeys(
+                                vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
                         else
                             fallback()
                         end
@@ -62,7 +58,8 @@ return {
                         if cmp.visible() then
                             cmp.select_prev_item()
                         elseif require("luasnip").jumpable(-1) then
-                            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+                            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true),
+                                "")
                         else
                             fallback()
                         end
@@ -80,11 +77,11 @@ return {
     -- LSP
     {
         'neovim/nvim-lspconfig',
-        cmd = {'LspInfo', 'LspInstall', 'LspStart'},
-        event = {'BufReadPre', 'BufNewFile'},
+        cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
+        event = { 'BufReadPre', 'BufNewFile' },
         dependencies = {
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'williamboman/mason-lspconfig.nvim'},
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'williamboman/mason-lspconfig.nvim' },
         },
         config = function()
             -- This is where all the LSP shenanigans will live
@@ -94,8 +91,8 @@ return {
             lsp_zero.on_attach(function(client, bufnr)
                 -- see :help lsp-zero-keybindings
                 -- to learn the available actions
-                lsp_zero.default_keymaps({buffer = bufnr})
-                vim.keymap.set({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, {})
+                lsp_zero.default_keymaps({ buffer = bufnr })
+                vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
                 vim.keymap.set("n", "<leader>df", vim.diagnostic.open_float)
 
                 -- Configure auto format => see format plugin for config
@@ -121,7 +118,7 @@ return {
                 info = '»'
             })
             require('mason-lspconfig').setup({
-                ensure_installed = {"lua_ls", "pyright", "gopls"},
+                ensure_installed = { "lua_ls", "pyright", "gopls" },
                 handlers = {
                     lsp_zero.default_setup,
                     lua_ls = function()
@@ -134,4 +131,3 @@ return {
         end,
     }
 }
-
