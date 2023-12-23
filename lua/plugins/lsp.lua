@@ -93,7 +93,8 @@ return {
                 -- to learn the available actions
                 lsp_zero.default_keymaps({ buffer = bufnr })
                 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-                vim.keymap.set("n", "<leader>df", vim.diagnostic.open_float)
+                vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float)
+                vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename)
 
                 -- Configure auto format => see format plugin for config
                 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

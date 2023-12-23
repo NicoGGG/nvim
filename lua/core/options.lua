@@ -11,6 +11,10 @@ vim.opt.wrap = false
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.list = true
+vim.opt.listchars:append("eol:󱞣")
+vim.opt.listchars:append("space:.")
+vim.opt.fillchars = { eob = " " }
 
 -- Synchronizes the system clipboard with nvim's clipboard
 vim.opt.clipboard = "unnamedplus"
@@ -23,9 +27,3 @@ vim.opt.inccommand = "split"
 
 vim.opt.ignorecase = true
 vim.opt.termguicolors = true
-
--- Keymaps
-
-vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
-

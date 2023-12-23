@@ -1,10 +1,25 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-
+        dependencies = {
+            "hiphish/rainbow-delimiters.nvim",
+        },
         config = function()
             require("nvim-treesitter.configs").setup({
-                ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
+                ensure_installed = {
+                    "c",
+                    "lua",
+                    "vim",
+                    "vimdoc",
+                    "query",
+                    "python",
+                    "go",
+                    "html",
+                    "css",
+                    "javascript",
+                    "typescript",
+                    "markdown"
+                },
                 auto_install = true,
                 highlight = {
                     enable = true
@@ -50,7 +65,7 @@ return {
                         -- mapping query_strings to modes.
                         selection_modes = {
                             ['@parameter.outer'] = 'v', -- charwise
-                            ['@function.outer'] = 'V', -- linewise
+                            ['@function.outer'] = 'V',  -- linewise
                             ['@class.outer'] = '<c-v>', -- blockwise
                         },
                         -- If you set this to `true` (default is `false`) then any textobject is
