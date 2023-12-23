@@ -95,7 +95,7 @@ return {
                 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
                 vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float)
                 vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename)
-
+                vim.keymap.set("n", "gd", vim.lsp.buf.definition)
                 -- Configure auto format => see format plugin for config
                 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
                 if client.supports_method("textDocument/formatting") then
@@ -119,7 +119,7 @@ return {
                 info = '»'
             })
             require('mason-lspconfig').setup({
-                ensure_installed = { "lua_ls", "pyright", "gopls", "marksman", "bashls" },
+                ensure_installed = { "lua_ls", "pyright", "gopls", "marksman", "bashls", "html" },
                 handlers = {
                     lsp_zero.default_setup,
                     lua_ls = function()
