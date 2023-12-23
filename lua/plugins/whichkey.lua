@@ -51,6 +51,7 @@ return {
             g = {
                 name = "Git",
                 s = "Git Status",
+                g = "LazyGit",
             },
         }
         local opts = { prefix = "<leader>" }
