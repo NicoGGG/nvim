@@ -27,3 +27,11 @@ vim.opt.inccommand = "split"
 
 vim.opt.ignorecase = true
 vim.opt.termguicolors = true
+
+-- -- Autosave when going back to normal mode
+-- -- This needs some more practice before I can use it without problems
+-- vim.api.nvim_create_autocmd("InsertLeave", {
+--   callback = function()
+--     vim.cmd("write")
+--   end,
+-- })
