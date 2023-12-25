@@ -22,7 +22,7 @@ return {
       f = {
         name = "Telescope",
         f = "Find file",
-        g = "Live grep"
+        g = "Live grep",
       },
 
       -- Neotree
@@ -36,13 +36,13 @@ return {
       c = {
         name = "Code",
         a = "Code Action",
-        v = "Variable Rename",
+        r = "Variable Rename",
         d = "Open Diagnostic Float",
         c = {
           name = "Copilot",
           c = { "<CMD>Copilot<CR>", "Copilot Status" },
           t = { "<CMD>Copilot suggestion toggle_auto_trigger<CR>", "Copilot Toggle Auto Trigger" },
-        }
+        },
       },
 
       -- Harpoon
@@ -58,6 +58,13 @@ return {
         s = "Git Status",
         g = "LazyGit",
       },
+
+      -- Autosave
+      a = {
+        name = "Autosave",
+        a = "Toggle Autosave",
+        R = "Discard All Changes and Quit Buffer",
+      },
     }
     local opts = { prefix = "<leader>" }
 
@@ -67,5 +74,5 @@ return {
 
     wk.register(mappings, opts)
     -- wk.register(base_mappings, {})
-  end
+  end,
 }
