@@ -28,8 +28,9 @@ return {
       -- Neotree
       n = {
         name = "Neotree",
-        e = "Neotree Toggle",
+        e = "Neotree Filesystem Toggle",
         f = "Neotree Focus",
+        b = "Neotree Buffers Toggle",
       },
 
       -- LSP
