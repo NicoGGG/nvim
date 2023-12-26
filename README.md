@@ -11,7 +11,7 @@ My prefered choices are AppImage for 64bits architecture and build from source f
 TODO
 ```
 
-### ARM (Ubuntu / Debian for the prerequisites)
+### AMD64 and ARM (Ubuntu / Debian for the prerequisites)
 
 ```bash
 sudo apt-get install ninja-build gettext cmake unzip curl
@@ -27,7 +27,8 @@ sudo make install
 ## Installation
 
 ```bash
-cd ~/.config
+mkdir -p $HOME/.config
+cd $HOME/.config
 git clone https://github.com/NicoGGG/nvim.git
 ```
 
@@ -45,6 +46,15 @@ nvm install 18
 ### Nerd font
 
 For better looking UI with icons, a [NerdFont](https://www.nerdfonts.com/) needs to be installed
+
+#### On windows WSL
+
+- Download the font on [NerdFont](https://www.nerdfonts.com/font-downloads)
+- Open the ttf font file you want to use. A preview appears. On the top left side, click on the Install button
+- On the WSL top bar, right click and select settings
+- Select your profile at the bottom left
+- Appearance -> Font Face -> The font your previously just installed
+- Save
 
 #### On ubuntu
 
@@ -70,6 +80,21 @@ This should be adaptable for other fonts by adapting the font-family name and th
 
 To use the golang LSP (and run my go programs in the process)
 
+#### Ubuntu (Works also in WSL)
+
+```
+mkdir -p /tmp/goinstall
+cd /tmp/goinstall
+wget https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
+tar -xf go1.21.5.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.21.5.linux-amd64.tar.gz
+echo "\n# Add the go bin to your PATH\nexport PATH=\$PATH:/usr/local/go/bin" >> $HOME/.zshrc
+source $HOME/.zshrc
+echo "# Add GOPATH/bin to your PATH\nexport PATH=\$PATH:$(go env GOPATH)/bin" >> $HOME/.zshrc
+source $HOME/.zshrc
+go version
+
+```
 #### ARM
 
 [Official install instructions](https://go.dev/doc/install)
@@ -81,8 +106,9 @@ wget https://go.dev/dl/go1.21.5.linux-arm64.tar.gz
 tar -xf go1.21.5.linux-arm64.tar.gz
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.21.5.linux-arm64.tar.gz
 echo "\n# Add the go bin to your PATH\nexport PATH=\$PATH:/usr/local/go/bin" >> $HOME/.zshrc
+source $HOME/.zshrc
 echo "# Add GOPATH/bin to your PATH\nexport PATH=\$PATH:$(go env GOPATH)/bin" >> $HOME/.zshrc
-export PATH=$PATH:/usr/local/go/bin:$(go env GOPATH)/bin
+source $HOME/.zshrc
 go version
 ```
 
@@ -103,7 +129,7 @@ go install
 ### Potential issue with nvim-treesitter
 
 > [!NOTE]
-> If the parser goes crazy, it might be do to a conflict between the native nvim parser and nvim-treesitter one.
+> If the parser goes crazy, it might be due to a conflict between the native nvim parser and nvim-treesitter one.
 > To resolve the issue, run the command `:echo nvim_get_runtime_file('parser', v:true)`. If there is another parser
 > in addition to $HOME/.local/share/nvim/lazy/nvim-treesitter/parser, go to that folder and rename it whatever.
 > Now running the same command should only show the nvim-treesitter parser.
