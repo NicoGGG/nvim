@@ -126,6 +126,27 @@ cd lazygit
 go install
 ```
 
+### Formatters for Neoformat
+
+As of now, I am using [Neoformat](https://github.com/sbdchd/neoformat) as a formatter since null-ls is archived. I need to find the time to use [none-ls](https://github.com/nvimtools/none-ls.nvim) instead.
+It would be cleaner for the LSP and Mason to also handle the lint and format (and maybe the debugger later on).
+
+```bash
+# Python formatters
+pip install --user install black
+pip install --user install djlint
+
+# Go import format
+go install golang.org/x/tools/cmd/goimports@latest
+
+# Stylua
+npx @johnnymorganz/stylua-bin --help
+cp .npm/_npx/*/node_modules/@johnnymorganz/stylua-bin/bin/stylua $HOME/.local/bin
+
+# Add .local/bin to PATH
+echo "\n# .local/bin to PATH\nexport PATH=\$PATH:$HOME/.local/bin"  >> $HOME/.zshrc
+```
+
 ### Potential issue with nvim-treesitter
 
 > [!NOTE]
@@ -139,5 +160,6 @@ go install
 - [x] Basic setup
 - [x] LSP for python and go
 - [x] Which key for keymap helpers
-- [x] More LSP: html, django, javascript/typescript, heredoc
+- [x] More LSP/Formatter: html, django, javascript/typescript, heredoc
+- [ ] Try to use none-ls for formatting, using lspconfig and mason instead of outside installation and configuration with Neoformat
 - [ ] Debugger for python and go

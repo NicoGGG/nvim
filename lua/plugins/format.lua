@@ -4,6 +4,7 @@ return {
     vim.g.neoformat_enabled_python = { "black" }
     vim.g.neoformat_enabled_htmldjango = { "djlint" }
     vim.g.neoformat_enabled_lua = { "stylua" }
+    vim.g.neoformat_enabled_go = { "goimports" }
     local fmt = vim.api.nvim_create_augroup("fmt", { clear = true })
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = fmt,

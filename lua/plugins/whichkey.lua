@@ -63,17 +63,12 @@ return {
       -- Autosave
       a = {
         name = "Autosave",
-        a = "Toggle Autosave",
+        t = "Toggle Autosave",
         R = "Discard All Changes and Quit Buffer",
       },
     }
     local opts = { prefix = "<leader>" }
 
-    local base_mappings = {
-      ["C-p"] = "Fuzzy Finder",
-    }
-
     wk.register(mappings, opts)
-    -- wk.register(base_mappings, {})
   end,
 }
