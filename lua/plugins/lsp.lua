@@ -133,8 +133,8 @@ return {
         -- Diagnostic keymaps
         nmap("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic message")
         nmap("]d", vim.diagnostic.goto_next, "Go to next diagnostic message")
-        nmap("<leader>cd", vim.diagnostic.open_float, "Open floating diagnostic message")
-        nmap("<leader>cl", vim.diagnostic.setloclist, "Open diagnostics list")
+        nmap("<leader>cd", vim.diagnostic.open_float, "Open [D]iagnostic Float")
+        nmap("<leader>cl", vim.diagnostic.setloclist, "Open Diagnostics [L]ist")
 
         -- See `:help K` for why this keymap
         nmap("K", vim.lsp.buf.hover, "Hover Documentation")
@@ -145,7 +145,7 @@ return {
         nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
         nmap("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
         nmap("<leader>cD", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-        nmap("<leader>cd", require("telescope.builtin").lsp_document_symbols, "[D]ocument Symbols")
+        nmap("<leader>cs", require("telescope.builtin").lsp_document_symbols, "Document [S]ymbols")
         nmap("<leader>cw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace Symbols")
       end)
       lsp_zero.set_sign_icons({
@@ -155,7 +155,7 @@ return {
         info = "»",
       })
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "pyright", "gopls", "marksman", "bashls", "html" },
+        ensure_installed = { "lua_ls", "ruff_lsp", "gopls", "marksman", "bashls", "html" },
         handlers = {
           lsp_zero.default_setup,
           lua_ls = function()
@@ -167,35 +167,39 @@ return {
       })
     end,
   },
-  -- {
-  --   "nvimtools/none-ls.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --   },
-  --   config = function()
-  --     local null_ls = require("null-ls")
-  --     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-  --     null_ls.setup({
-  --       sources = {
-  --         null_ls.builtins.formatting.stylua,
-  --         null_ls.builtins.formatting.black,
-  --         null_ls.builtins.formatting.djlint,
-  --         null_ls.builtins.formatting.goimports,
-  --       },
-  --       on_attach = function(client, bufnr)
-  --         if client.supports_method("textDocument/formatting") then
-  --           vim.api.nvim_buf_create_user_command(bufnr, "LspFormatting", function()
-  --             vim.lsp.buf.format({ async = false })
-  --           end, {})
-  --           vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-  --           vim.api.nvim_create_autocmd("BufWritePre", {
-  --             group = augroup,
-  --             buffer = bufnr,
-  --             command = "try | undojoin | LspFormatting | catch /E790/ | LspFormatting | endtry",
-  --           })
-  --         end
-  --       end,
-  --     })
-  --   end,
-  -- },
+  {
+    "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "williamboman/mason.nvim",
+    },
+    config = function()
+      local null_ls = require("null-ls")
+      local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+      null_ls.setup({
+        -- -- Auto format will stay in Neoformat for now.
+        -- -- Need to find a way to fix the undojoin issue with null-ls to use it here
+        sources = {
+          -- null_ls.builtins.formatting.stylua,
+          -- null_ls.builtins.formatting.black,
+          -- null_ls.builtins.formatting.djlint,
+          -- null_ls.builtins.formatting.goimports,
+          null_ls.builtins.diagnostics.mypy,
+        },
+        -- on_attach = function(client, bufnr)
+        --   if client.supports_method("textDocument/formatting") then
+        --     vim.api.nvim_buf_create_user_command(bufnr, "LspFormatting", function()
+        --       vim.lsp.buf.format({ async = false })
+        --     end, {})
+        --     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        --     vim.api.nvim_create_autocmd("BufWritePre", {
+        --       group = augroup,
+        --       buffer = bufnr,
+        --       command = "try | undojoin | LspFormatting | catch /E790/ | LspFormatting | endtry",
+        --     })
+        --   end
+        -- end,
+      })
+    end,
+  },
 }
