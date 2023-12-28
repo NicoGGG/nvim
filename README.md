@@ -131,6 +131,16 @@ go install
 As of now, I am using [Neoformat](https://github.com/sbdchd/neoformat) as a formatter since null-ls is archived. I need to find the time to use [none-ls](https://github.com/nvimtools/none-ls.nvim) instead.
 It would be cleaner for the LSP and Mason to also handle the lint and format (and maybe the debugger later on).
 
+#### Auto Install
+
+In Neovim execute 
+
+```vim
+:MasonInstallAll
+```
+
+#### Manual install
+
 ```bash
 # Python formatters
 pip install --user install black
@@ -162,4 +172,5 @@ echo "\n# .local/bin to PATH\nexport PATH=\$PATH:$HOME/.local/bin"  >> $HOME/.zs
 - [x] Which key for keymap helpers
 - [x] More LSP/Formatter: html, django, javascript/typescript, heredoc
 - [ ] Try to use none-ls for formatting, using lspconfig and mason instead of outside installation and configuration with Neoformat
+- [ ] Try to improve the file diff view in lazygit because right now it's hard to visualize all the changes in a file
 - [ ] Debugger for python and go

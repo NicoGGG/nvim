@@ -17,54 +17,42 @@ return {
       -- Basic commands
       ["w"] = { "Save Current Buffer" },
       ["<F5>"] = "Undo tree",
-      ["e"] = "File Explorer",
       -- Telescope
       f = {
-        name = "Telescope",
-        f = "Find file",
-        g = "Live grep",
+        name = "[F]ind with Telescope",
       },
 
       -- Neotree
       n = {
-        name = "Neotree",
-        e = "Neotree Filesystem Toggle",
-        f = "Neotree Focus",
-        b = "Neotree Buffers Toggle",
+        name = "[N]eotree",
       },
 
       -- LSP
       c = {
-        name = "Code",
-        a = "Code Action",
-        r = "Variable Rename",
-        d = "Open Diagnostic Float",
-        c = {
-          name = "Copilot",
-          c = { "<CMD>Copilot<CR>", "Copilot Status" },
-          t = { "<CMD>Copilot suggestion toggle_auto_trigger<CR>", "Copilot Toggle Auto Trigger" },
-        },
+        name = "[C]ode",
+        s = { "<CMD>Copilot<CR>", "Copilot [S]tatus" },
+        t = { "<CMD>Copilot suggestion toggle_auto_trigger<CR>", "Copilot [T]oggle Auto Trigger" },
       },
 
       -- Harpoon
       h = {
-        name = "Harpoon",
+        name = "[H]arpoon",
         h = "List Hooks",
-        a = "Add Current File To Hooks",
+        a = "[H]arpoon [A]dd Current File",
       },
 
       -- Git
       g = {
-        name = "Git",
-        s = "Git Status",
-        g = "LazyGit",
+        name = "[G]it",
+        s = "Git [S]tatus",
+        g = "Lazy[G]it",
       },
 
       -- Autosave
-      a = {
-        name = "Autosave",
-        t = "Toggle Autosave",
-        R = "Discard All Changes and Quit Buffer",
+      s = {
+        name = "Auto[s]ave",
+        t = "[T]oggle Autosave",
+        D = "[D]iscard All Changes and Quit Buffer",
       },
     }
     local opts = { prefix = "<leader>" }

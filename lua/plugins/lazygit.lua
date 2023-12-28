@@ -5,9 +5,10 @@ return {
     "nvim-lua/plenary.nvim",
   },
   keys = {
-    { "<leader>gg", vim.cmd.LazyGit }
+    { "<leader>gg", vim.cmd.LazyGit },
   },
   config = function()
     require("telescope").load_extension("lazygit")
+    vim.g.lazygit_floating_window_scaling_factor = 1
   end,
 }

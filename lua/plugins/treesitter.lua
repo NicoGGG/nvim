@@ -30,10 +30,10 @@ return {
         incremental_selection = {
           enable = true,
           keymaps = {
-            init_selection = "<Leader>ss",
-            node_incremental = "<Leader>si",
-            scope_incremental = "<Leader>sc",
-            node_decremental = "<Leader>sd",
+            init_selection = "<C-SPACE>",
+            node_incremental = "<C-SPACE>",
+            scope_incremental = "<C-s>",
+            node_decremental = "<M-SPACE>",
           },
         },
         textobjects = {
@@ -45,16 +45,18 @@ return {
 
             keymaps = {
               -- You can use the capture groups defined in textobjects.scm
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-              ["ac"] = "@class.outer",
+              ["af"] = { query = "@function.outer", desc = "Select outer part of a function" },
+              ["if"] = { query = "@function.inner", desc = "Select inner part of a function" },
+              ["ac"] = { query = "@class.outer", desc = "Select outer part of a class" },
+              ["ic"] = { query = "@class.inner", desc = "Select inner part of a class" },
+              ["aa"] = { query = "@parameter.outer", desc = "Select outer part of a parameter" },
+              ["ia"] = { query = "@parameter.inner", desc = "Select inner part of a parameter" },
               -- You can optionally set descriptions to the mappings (used in the desc parameter of
               -- nvim_buf_set_keymap) which plugins like which-key display
-              ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
               -- You can also use captures from other query groups like `locals.scm`
               ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
-              ["id"] = "@conditional.inner",
-              ["pi"] = "@parameter.inner",
+              ["id"] = { query = "@conditional.inner", desc = "Select inner part of a conditional" },
+              ["ad"] = { query = "@conditional.outer", desc = "Select outer part of a conditional" },
             },
             -- You can choose the select mode (default is charwise 'v')
             --
