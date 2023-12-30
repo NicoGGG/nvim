@@ -11,6 +11,8 @@ map("n", "<leader><CR>", "<cmd>noh<CR>", opts)
 -- Paste without copying the deleted text when in visualmode
 map("v", "<leader>p", '"_dP', opts)
 -- Remap Ctrl-C to Esc because autosave works with Esc but Esc sometimes lags, especially in WSL. Moreover, Ctrl-C is more practical to hit on the keyboard
+-- Turns out the lag comes from tmux, not vim. But I still prefer Ctrl-C for now.
+-- It could be useful to have a mapping for back to normal mode without auto-save anyway
 map("i", "<C-c>", "<Esc>", opts)
 -- Unbind default bindings for arrow keys
 map("v", "<up>", "<nop>", opts)
