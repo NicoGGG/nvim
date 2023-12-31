@@ -2,7 +2,22 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      "hiphish/rainbow-delimiters.nvim",
+      {
+        "hiphish/rainbow-delimiters.nvim",
+        config = function()
+          require("rainbow-delimiters.setup").setup({
+            highlight = {
+              "RainbowDelimiterYellow",
+              "RainbowDelimiterBlue",
+              "RainbowDelimiterOrange",
+              "RainbowDelimiterGreen",
+              "RainbowDelimiterViolet",
+              "RainbowDelimiterCyan",
+              "RainbowDelimiterRed",
+            },
+          })
+        end,
+      },
     },
     config = function()
       require("nvim-treesitter.configs").setup({

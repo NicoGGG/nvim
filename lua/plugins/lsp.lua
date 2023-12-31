@@ -21,6 +21,7 @@ return {
           "black",
           "djlint",
           "goimports",
+          "mypy",
         },
       }
       -- copied from nvchad config to install all non LSP packages easily (not automatic tho)
@@ -184,7 +185,12 @@ return {
           -- null_ls.builtins.formatting.black,
           -- null_ls.builtins.formatting.djlint,
           -- null_ls.builtins.formatting.goimports,
-          null_ls.builtins.diagnostics.mypy,
+          null_ls.builtins.diagnostics.mypy.with({
+            extra_args = function()
+              local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or "/usr"
+              return { "--python-executable", virtual .. "/bin/python3" }
+            end,
+          }),
         },
         -- on_attach = function(client, bufnr)
         --   if client.supports_method("textDocument/formatting") then
