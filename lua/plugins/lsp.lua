@@ -156,7 +156,7 @@ return {
         info = "»",
       })
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ruff_lsp", "gopls", "marksman", "bashls", "html" },
+        ensure_installed = { "lua_ls", "ruff_lsp", "gopls", "rust_analyzer", "marksman", "bashls", "html" },
         handlers = {
           lsp_zero.default_setup,
           lua_ls = function()

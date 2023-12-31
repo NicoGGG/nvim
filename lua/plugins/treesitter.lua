@@ -34,6 +34,7 @@ return {
           "javascript",
           "typescript",
           "markdown",
+          "rust",
         },
         auto_install = true,
         highlight = {
