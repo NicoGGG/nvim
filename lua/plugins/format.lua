@@ -6,6 +6,7 @@ return {
     vim.g.neoformat_enabled_lua = { "stylua" }
     vim.g.neoformat_enabled_go = { "goimports" }
     vim.g.neoformat_enabled_rust = { "rustfmt" }
+    vim.g.neoformat_enabled_html = { "prettier" }
     local fmt = vim.api.nvim_create_augroup("fmt", { clear = true })
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = fmt,

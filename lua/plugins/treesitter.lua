@@ -30,6 +30,7 @@ return {
           "python",
           "go",
           "html",
+          "htmldjango",
           "css",
           "javascript",
           "typescript",
