@@ -54,6 +54,13 @@ return {
         t = "[T]oggle Autosave",
         D = "[D]iscard All Changes and Quit Buffer",
       },
+
+      -- Venv (Python)
+      v = {
+        name = "[V]env",
+        s = "[S]elect Venv",
+        c = "[C]ached Venv",
+      },
     }
     local opts = { prefix = "<leader>" }
 
