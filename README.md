@@ -66,12 +66,15 @@ I found myself trying to use neovim on my chromebook, and this is the solution I
 (From [here](https://github.com/ye-rm/Use-Meslo-Nerd-Font-on-chromebook))
 
 1. open your terminal
-2. pressCTRL+SHIFT+J
+2. press CTRL+SHIFT+J
 3. copy&run
 
 ```javascript
-term_.prefs_.set('font-family', 'MesloLGM Nerd Font');
-term_.prefs_.set('user-css-text', '@font-face {font-family: "MesloLGM Nerd Font"; src: url("https://raw.githubusercontent.com/ye-rm/MesloNerdFont-in-chrome-OS/main/MesloLGMNerdFont-Regular.ttf"); font-weight: normal; font-style: normal;}')
+term_.prefs_.set("font-family", "MesloLGM Nerd Font");
+term_.prefs_.set(
+  "user-css-text",
+  '@font-face {font-family: "MesloLGM Nerd Font"; src: url("https://raw.githubusercontent.com/ye-rm/MesloNerdFont-in-chrome-OS/main/MesloLGMNerdFont-Regular.ttf"); font-weight: normal; font-style: normal;}',
+);
 ```
 
 This should be adaptable for other fonts by adapting the font-family name and the src url
@@ -82,7 +85,7 @@ To use the golang LSP (and run my go programs in the process)
 
 #### Ubuntu (Works also in WSL)
 
-```
+```bash
 mkdir -p /tmp/goinstall
 cd /tmp/goinstall
 wget https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
@@ -95,6 +98,7 @@ source $HOME/.zshrc
 go version
 
 ```
+
 #### ARM
 
 [Official install instructions](https://go.dev/doc/install)
@@ -128,12 +132,13 @@ go install
 
 ### Formatters for Neoformat
 
-As of now, I am using [Neoformat](https://github.com/sbdchd/neoformat) as a formatter since null-ls is archived. I need to find the time to use [none-ls](https://github.com/nvimtools/none-ls.nvim) instead.
+As of now, I am using [Neoformat](https://github.com/sbdchd/neoformat) as a formatter since null-ls is archived.
+I need to find the time to use [none-ls](https://github.com/nvimtools/none-ls.nvim) instead.
 It would be cleaner for the LSP and Mason to also handle the lint and format (and maybe the debugger later on).
 
 #### Auto Install
 
-In Neovim execute 
+In Neovim execute
 
 ```vim
 :MasonInstallAll
