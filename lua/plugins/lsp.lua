@@ -21,7 +21,7 @@ return {
           "black",
           "djlint",
           "goimports",
-          "mypy",
+          "ansible-lint",
         },
       }
       -- copied from nvchad config to install all non LSP packages easily (not automatic tho)
@@ -80,6 +80,22 @@ return {
               fallback()
             end
           end),
+          ["<C-k>"] = cmp.mapping({
+            i = function()
+              if cmp.visible() then
+                cmp.abort()
+              else
+                cmp.complete()
+              end
+            end,
+            c = function()
+              if cmp.visible() then
+                cmp.close()
+              else
+                cmp.complete()
+              end
+            end,
+          }),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-u>"] = cmp.mapping.scroll_docs(-4),
           ["<C-d>"] = cmp.mapping.scroll_docs(4),
@@ -156,7 +172,18 @@ return {
         info = "»",
       })
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "pyright", "gopls", "rust_analyzer", "marksman", "bashls", "html", "htmx" },
+        ensure_installed = {
+          "lua_ls",
+          "pyright",
+          "gopls",
+          "rust_analyzer",
+          "marksman",
+          "bashls",
+          "html",
+          "htmx",
+          "ansiblels",
+          "yamlls",
+        },
         handlers = {
           lsp_zero.default_setup,
           lua_ls = function()
