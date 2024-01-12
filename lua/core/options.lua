@@ -23,6 +23,8 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.scrolloff = 999
 vim.opt.virtualedit = "block"
 
+vim.opt.guicursor = "n-v-c-sm-ve:block,r-cr-o:hor20,i-ci:block-iCursor-blinkwait300-blinkon200-blinkoff150"
+
 vim.opt.inccommand = "split"
 
 vim.opt.ignorecase = true
