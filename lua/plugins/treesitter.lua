@@ -22,6 +22,7 @@ return {
     config = function()
       require("nvim-treesitter.configs").setup({
         ensure_installed = {
+          "bash",
           "c",
           "lua",
           "vim",
