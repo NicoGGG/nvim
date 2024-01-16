@@ -1,10 +1,10 @@
 return {
   "Pocco81/auto-save.nvim",
   config = function()
-    vim.keymap.set("n", "<leader>at", ":ASToggle<CR>")
+    vim.keymap.set("n", "<leader>st", ":ASToggle<CR>")
     -- Next command allows to restore file to its initial state and quit,
     -- effectively doing a "!quit" if autosave was disabled
-    vim.keymap.set("n", "<leader>aR", ":u0 | w | q<CR>")
+    vim.keymap.set("n", "<leader>sD", ":u0 | w | q<CR>")
     -- -- Option to disable auto save on harpoon ui buffers only
     -- local opts = {
     --   condition = function(buf)
