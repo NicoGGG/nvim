@@ -176,6 +176,7 @@ return {
           "lua_ls",
           "pyright",
           "gopls",
+          "tsserver",
           "rust_analyzer",
           "marksman",
           "bashls",
@@ -186,6 +187,11 @@ return {
         },
         handlers = {
           lsp_zero.default_setup,
+          -- tsserver = function()
+          --   require("lspconfig").tsserver.setup({
+          --     settings = { implicitProjectConfiguration = { checkJs = true } },
+          --   })
+          -- end,
           lua_ls = function()
             -- (Optional) Configure lua language server for neovim
             local lua_opts = lsp_zero.nvim_lua_ls()
