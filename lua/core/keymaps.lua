@@ -10,10 +10,12 @@ map("n", "<leader>w", "<cmd>w<CR>", opts)
 map("n", "<leader><CR>", "<cmd>noh<CR>", opts)
 -- Paste without copying the deleted text when in visualmode
 map("v", "<leader>p", '"_dP', opts)
--- Remap Ctrl-C to Esc because autosave works with Esc but Esc sometimes lags, especially in WSL. Moreover, Ctrl-C is more practical to hit on the keyboard
--- Turns out the lag comes from tmux, not vim. But I still prefer Ctrl-C for now.
--- It could be useful to have a mapping for back to normal mode without auto-save anyway
-map("i", "<C-c>", "<Esc>", opts)
+-- -- Remap Ctrl-C to Esc because autosave works with Esc but Esc sometimes lags, especially in WSL. Moreover, Ctrl-C is more practical to hit on the keyboard
+-- -- Turns out the lag comes from tmux, not vim. But I still prefer Ctrl-C for now.
+-- -- It could be useful to have a mapping for back to normal mode without auto-save anyway
+-- -- USING CAPS LOCK AS ESCAPE KEY INSTEAD
+-- map("i", "<C-c>", "<Esc>", opts)
+
 -- Unbind default bindings for arrow keys
 map("v", "<up>", "<nop>", opts)
 map("v", "<down>", "<nop>", opts)
@@ -38,5 +40,7 @@ map("n", "<M-k>", [[mz:m-2<CR>`z]], opts)
 map("v", "<M-j>", [[:m'>+<CR>`<my`>mzgv`yo`z]], opts)
 map("v", "<M-k>", [[:m'<-2<CR>`>my`<mzgv`yo`z]], opts)
 
--- -- api.nvim_create_autocmd("FocusGained", { command = [[call setreg("@", getreg("+"))]] })
-map("n", "<leader>r", [[call setreg("@", getreg("+")) <CR>]], opts)
+-- Save from system to neovim clipboard
+map("n", "<leader>yi", "<cmd>call setreg('@', getreg('+'))<CR>", { desc = "Save from system into neovim clipboard" })
+-- Save from neovim to system clipboard
+map("n", "<leader>ya", "<cmd>call setreg('+', getreg('@'))<CR>", { desc = "Save from neovim out to system clipboard" })

@@ -17,7 +17,7 @@ vim.opt.listchars:append("space:.")
 vim.opt.fillchars = { eob = " " }
 
 -- -- Synchronizes the system clipboard with nvim's clipboard
--- -- Disabled because it was causing issues of loss of focus and general slowness
+-- -- Disabled because it was causing issues of loss of focus and general slowness (this is a known issue of Wayland wl-clipboard)
 -- -- Use <leader>r instead to copy system clipboard to nvim's clipboard
 -- vim.opt.clipboard = "unnamed,unnamedplus"
 

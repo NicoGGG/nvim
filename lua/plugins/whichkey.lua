@@ -30,8 +30,11 @@ return {
       -- LSP
       c = {
         name = "[C]ode",
-        s = { "<CMD>Copilot<CR>", "Copilot [S]tatus" },
-        t = { "<CMD>Copilot suggestion toggle_auto_trigger<CR>", "Copilot [T]oggle Auto Trigger" },
+        p = {
+          name = "Co[p]ilot",
+          s = { "<CMD>Copilot<CR>", "Copilot [S]tatus" },
+          t = { "<CMD>Copilot suggestion toggle_auto_trigger<CR>", "Copilot [T]oggle Auto Trigger" },
+        },
       },
 
       -- Harpoon
