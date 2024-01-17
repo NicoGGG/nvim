@@ -37,3 +37,6 @@ map("n", "<M-j>", [[mz:m+<CR>`z]], opts)
 map("n", "<M-k>", [[mz:m-2<CR>`z]], opts)
 map("v", "<M-j>", [[:m'>+<CR>`<my`>mzgv`yo`z]], opts)
 map("v", "<M-k>", [[:m'<-2<CR>`>my`<mzgv`yo`z]], opts)
+
+-- -- api.nvim_create_autocmd("FocusGained", { command = [[call setreg("@", getreg("+"))]] })
+map("n", "<leader>r", [[call setreg("@", getreg("+")) <CR>]], opts)

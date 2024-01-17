@@ -16,8 +16,10 @@ vim.opt.listchars:append("eol:󱞣")
 vim.opt.listchars:append("space:.")
 vim.opt.fillchars = { eob = " " }
 
--- Synchronizes the system clipboard with nvim's clipboard
-vim.opt.clipboard = "unnamedplus"
+-- -- Synchronizes the system clipboard with nvim's clipboard
+-- -- Disabled because it was causing issues of loss of focus and general slowness
+-- -- Use <leader>r instead to copy system clipboard to nvim's clipboard
+-- vim.opt.clipboard = "unnamed,unnamedplus"
 
 -- Keep the cursor in the middle of the screen
 vim.opt.scrolloff = 999
