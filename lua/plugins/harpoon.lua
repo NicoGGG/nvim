@@ -23,25 +23,25 @@ return {
       end,
     },
     {
-      "<leader>hj",
+      "<leader>h1",
       function()
         harpoon:list():select(1)
       end,
     },
     {
-      "<leader>hk",
+      "<leader>h2",
       function()
         harpoon:list():select(2)
       end,
     },
     {
-      "<leader>hl",
+      "<leader>h3",
       function()
         harpoon:list():select(3)
       end,
     },
     {
-      "<leader>hi",
+      "<leader>h4",
       function()
         harpoon:list():select(4)
       end,

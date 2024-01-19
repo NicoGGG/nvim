@@ -40,14 +40,13 @@ return {
       -- Harpoon
       h = {
         name = "[H]arpoon",
-        h = "List Hooks",
-        a = "[H]arpoon [A]dd Current File",
+        h = "List [H]ooks",
+        a = "Harpoon [A]dd Current File",
       },
 
       -- Git
       g = {
         name = "[G]it",
-        s = "Git [S]tatus",
         g = "Lazy[G]it",
       },
 

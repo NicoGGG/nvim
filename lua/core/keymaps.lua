@@ -44,3 +44,7 @@ map("v", "<M-k>", [[:m'<-2<CR>`>my`<mzgv`yo`z]], opts)
 map("n", "<leader>yi", "<cmd>call setreg('@', getreg('+'))<CR>", { desc = "Save from system into neovim clipboard" })
 -- Save from neovim to system clipboard
 map("n", "<leader>ya", "<cmd>call setreg('+', getreg('@'))<CR>", { desc = "Save from neovim out to system clipboard" })
+-- Yank directly to system clipboard
+map("v", "<leader>yy", '"+y', { desc = "Yank directly to system clipboard" })
+-- Paste from system clipboard
+map("n", "<leader>yp", '"+p', { desc = "Paste from system clipboard" })
