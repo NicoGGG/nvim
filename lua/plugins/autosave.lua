@@ -3,12 +3,15 @@ return {
   cmd = "ASToggle", -- optional for lazy loading on command
   event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
   opts = {
-    -- Option to disable autosave on all non-normal buffers
     condition = function(buf)
-      if vim.bo[buf].buftype ~= "" then
+      local fn = vim.fn
+
+      -- don't save for special-buffers
+      if fn.getbufvar(buf, "&buftype") ~= "" then
         return false
       end
-    end,
+      return true
+    end, -- Option to disable autosave on all non-normal buffers
   },
 
   keys = {
