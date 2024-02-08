@@ -22,6 +22,7 @@ return {
           "djlint",
           "goimports",
           "ansible-lint",
+          "prettier",
         },
       }
       -- copied from nvchad config to install all non LSP packages easily (not automatic tho)
@@ -183,7 +184,7 @@ return {
           "html",
           "htmx",
           "ansiblels",
-          "yamlls",
+          "docker_compose_language_service",
         },
         handlers = {
           lsp_zero.default_setup,
