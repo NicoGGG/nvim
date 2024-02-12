@@ -20,6 +20,16 @@ return {
       },
     },
     config = function()
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+      parser_config.ejs = {
+        install_info = {
+          url = "https://github.com/tree-sitter/tree-sitter-embedded-template.git",
+          files = { "src/parser.c" },
+          generate_requires_npm = true, -- if stand-alone parser without npm dependencies
+          requires_generate_from_grammar = false,
+        },
+        filetype = "ejs",
+      }
       require("nvim-treesitter.configs").setup({
         ensure_installed = {
           "bash",
