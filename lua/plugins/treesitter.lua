@@ -46,6 +46,7 @@ return {
           "javascript",
           "typescript",
           "markdown",
+          "markdown_inline",
           "rust",
         },
         auto_install = true,

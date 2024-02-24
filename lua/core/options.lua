@@ -25,6 +25,7 @@ vim.opt.fillchars = { eob = " " }
 vim.opt.scrolloff = 999
 vim.opt.virtualedit = "block"
 
+-- Block cursor in insert mode
 vim.opt.guicursor = "n-v-c-sm-ve:block,r-cr-o:hor20,i-ci:block-iCursor-blinkwait300-blinkon200-blinkoff150"
 
 vim.opt.inccommand = "split"
