@@ -49,8 +49,8 @@ map("v", "<leader>yy", '"+y', { desc = "Yank directly to system clipboard" })
 -- Paste from system clipboard
 map("n", "<leader>yp", '"+p', { desc = "Paste from system clipboard" })
 
--- navigation
-
+-- Navigation and files
 map("n", "[b", "<CMD>bp<CR>", { desc = "Go to previous buffer" })
 map("n", "]b", "<CMD>bn<CR>", { desc = "Go to next buffer" })
 map("n", "bd", "<CMD>bd<CR>", { desc = "Delete current buffer" })
+map("n", "<leader>ft", "<CMD>echo &filetype<CR>", { desc = "Show filetype" })

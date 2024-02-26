@@ -185,6 +185,7 @@ return {
           "htmx",
           "ansiblels",
           "docker_compose_language_service",
+          "terraformls",
         },
         handlers = {
           lsp_zero.default_setup,
@@ -203,6 +204,19 @@ return {
               filetypes = { "html", "htmldjango" },
             })
           end,
+          htmx = function()
+            require("lspconfig").html.setup({
+              filetypes = { "html", "htmldjango" },
+            })
+          end,
+          -- terraformls = function()
+          --   local capabilities = vim.lsp.protocol.make_client_capabilities()
+          --   capabilities.textDocument.completion.completionItem.snippetSupport = true
+          --   require("lspconfig").terraformls.setup({
+          --     filetypes = { "terraform", "hcl", "tf", "terraform-vars" },
+          --     capabilities = capabilities,
+          --   })
+          -- end,
         },
       })
     end,
