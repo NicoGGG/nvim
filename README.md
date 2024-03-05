@@ -1,6 +1,6 @@
 # My Neovim configuration
 
-## Prequisite (obviously): Neovim installation
+## Prerequisites (obviously): Neovim installation
 
 Many possibilities documented in the official neovim github repository.
 My prefered choices are AppImage for 64bits architecture and build from source for ARM.

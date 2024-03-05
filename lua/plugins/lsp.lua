@@ -209,6 +209,17 @@ return {
               filetypes = { "html", "htmldjango" },
             })
           end,
+          volar = function()
+            require("lspconfig").html.setup({
+              filetypes = { "vue" },
+            })
+            -- ts/js/vue
+            require("lspconfig").volar.setup({
+              filetypes = { "vue" },
+              -- enable "take over mode" for typescript files as well: https://github.com/johnsoncodehk/volar/discussions/471
+              -- filetypes = { "typescript", "javascript", "vue" },
+            })
+          end,
           -- terraformls = function()
           --   local capabilities = vim.lsp.protocol.make_client_capabilities()
           --   capabilities.textDocument.completion.completionItem.snippetSupport = true
