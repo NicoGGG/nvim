@@ -179,6 +179,7 @@ return {
           "pyright",
           "gopls",
           "tsserver",
+          "volar",
           "rust_analyzer",
           "marksman",
           "bashls",
