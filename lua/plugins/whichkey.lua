@@ -57,6 +57,13 @@ return {
         D = "[D]iscard All Changes and Quit Buffer",
       },
 
+      -- Rest
+      r = {
+        name = "[R]est",
+        r = "Send [R]equest",
+        p = "Send [P]review",
+      },
+
       -- Venv (Python)
       v = {
         name = "[V]env",

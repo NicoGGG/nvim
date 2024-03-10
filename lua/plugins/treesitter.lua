@@ -41,6 +41,8 @@ return {
           "python",
           "go",
           "html",
+          "http",
+          "json",
           "htmldjango",
           "css",
           "javascript",
