@@ -2,6 +2,7 @@ return {
   "sbdchd/neoformat",
   config = function()
     vim.g.neoformat_enabled_python = { "black" }
+    vim.g.neoformat_enabled_toml = { "taplo" }
     vim.g.neoformat_enabled_htmldjango = { "djlint" }
     vim.g.neoformat_enabled_lua = { "stylua" }
     vim.g.neoformat_enabled_go = { "goimports" }

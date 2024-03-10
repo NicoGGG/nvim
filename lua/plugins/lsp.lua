@@ -23,6 +23,7 @@ return {
           "goimports",
           "ansible-lint",
           "prettier",
+          "taplo",
         },
       }
       -- copied from nvchad config to install all non LSP packages easily (not automatic tho)

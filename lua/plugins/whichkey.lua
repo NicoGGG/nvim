@@ -35,6 +35,28 @@ return {
           s = { "<CMD>Copilot<CR>", "Copilot [S]tatus" },
           t = { "<CMD>Copilot suggestion toggle_auto_trigger<CR>", "Copilot [T]oggle Auto Trigger" },
         },
+        c = {
+          name = "[C]hatGPT",
+          c = { "<cmd>ChatGPT<CR>", "Chat" },
+          e = {
+            function()
+              require("chatgpt").edit_with_instructions()
+            end,
+            "[E]dit with instruction",
+            mode = { "n", "v" },
+          },
+          g = { "<cmd>ChatGPTRun grammar_correction<CR>", "[G]rammar Correction", mode = { "n", "v" } },
+          t = { "<cmd>ChatGPTRun translate<CR>", "[T]ranslate", mode = { "n", "v" } },
+          k = { "<cmd>ChatGPTRun keywords<CR>", "[K]eywords", mode = { "n", "v" } },
+          d = { "<cmd>ChatGPTRun docstring<CR>", "[D]ocstring", mode = { "n", "v" } },
+          a = { "<cmd>ChatGPTRun add_tests<CR>", "[A]dd Tests", mode = { "n", "v" } },
+          o = { "<cmd>ChatGPTRun optimize_code<CR>", "[O]ptimize Code", mode = { "n", "v" } },
+          s = { "<cmd>ChatGPTRun summarize<CR>", "[S]ummarize", mode = { "n", "v" } },
+          f = { "<cmd>ChatGPTRun fix_bugs<CR>", "[F]ix Bugs", mode = { "n", "v" } },
+          x = { "<cmd>ChatGPTRun explain_code<CR>", "E[x]plain Code", mode = { "n", "v" } },
+          r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "[R]oxygen Edit", mode = { "n", "v" } },
+          l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readabi[l]ity Analysis", mode = { "n", "v" } },
+        },
       },
 
       -- Harpoon
