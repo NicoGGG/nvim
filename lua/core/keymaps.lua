@@ -2,7 +2,8 @@
 vim.g.mapleader = " "
 
 local map = vim.api.nvim_set_keymap
-local opts = {}
+local opts = { silent = true, noremap = true }
+
 -- -- Basic operations
 -- Save with leader w to avoid mistyping ":"
 map("n", "<leader>w", "<cmd>w<CR>", opts)
