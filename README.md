@@ -40,7 +40,7 @@ Many plugins need nodejs to work. The simplest is to install with nvm (Not at al
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-nvm install 18
+nvm install 20
 ```
 
 ### Nerd font
