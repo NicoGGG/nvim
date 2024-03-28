@@ -32,17 +32,3 @@ vim.opt.inccommand = "split"
 
 vim.opt.ignorecase = true
 vim.opt.termguicolors = true
-
--- Colorschemes
-vim.cmd.colorscheme("catppuccin")
--- -- Configs for colorschemes transparency (configure in the theme config if possible)
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none", ctermbg = "none" })
--- vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none", ctermbg = "none" })
--- vim.api.nvim_set_hl(0, "NotifyBackground", { bg = "none", ctermbg = "none" })
--- vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none", ctermbg = "none" })
--- vim.api.nvim_set_hl(0, "TelescopeTitle", { bg = "none", ctermbg = "none" })
--- vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none", ctermbg = "none" })
--- vim.api.nvim_set_hl(0, "MsgArea", { bg = "none", ctermbg = "none" })
