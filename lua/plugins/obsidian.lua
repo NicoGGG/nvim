@@ -67,5 +67,6 @@ return {
     nmap("<leader>op", "<CMD>ObsidianQuickSwitch<CR>", "Obsidian Quick Switch")
     nmap("<leader>ow", "<CMD>ObsidianWorkspace<CR>", "Obsidian Change [W]orkspace")
     nmap("<leader>ol", "<CMD>ObsidianTags<CR>", "Obsidian [L]ist Tags")
+    nmap("<leader>of", "<CMD>ObsidianFollowLink<CR>", "Obsidian [F]ollow Link")
   end,
 }
