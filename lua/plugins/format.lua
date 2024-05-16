@@ -8,8 +8,8 @@ return {
     vim.g.neoformat_enabled_go = { "goimports" }
     vim.g.neoformat_enabled_rust = { "rustfmt" }
     vim.g.neoformat_enabled_html = { "prettier" }
-    vim.g.neoformat_enabled_javascript = { "prettier" }
-    vim.g.neoformat_enabled_typescript = { "prettier" }
+    vim.g.neoformat_enabled_javascript = { "eslint_d", "prettier" }
+    vim.g.neoformat_enabled_typescript = { "eslint_d", "prettier" }
     local fmt = vim.api.nvim_create_augroup("fmt", { clear = true })
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = fmt,
@@ -28,7 +28,7 @@ return {
     -- <leader>ac to enable autoformat on save
     vim.api.nvim_set_keymap(
       "n",
-      "<leader>ac",
+      "<leader>ae",
       ":autocmd fmt BufWritePre try | undojoin | Neoformat | catch /E790/ | Neoformat | endtry<CR>",
       { noremap = true, silent = true, desc = "Enable autoformat on save" }
     )

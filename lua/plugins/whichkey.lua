@@ -17,6 +17,13 @@ return {
       -- Basic commands
       ["w"] = { "Save Current Buffer" },
       ["<F5>"] = "Undo tree",
+      -- Format
+      a = {
+        name = "Form[a]t",
+        e = "Autoformat [E]nable",
+        d = "Autoformat [D]isable",
+      },
+
       -- Telescope
       f = {
         name = "[F]ind with Telescope",

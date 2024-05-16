@@ -23,7 +23,7 @@ return {
           "goimports",
           "ansible-lint",
           "prettier",
-          "taplo",
+          "eslint_d",
         },
       }
       -- copied from nvchad config to install all non LSP packages easily (not automatic tho)
@@ -39,6 +39,7 @@ return {
   -- Autocompletion
   {
     "hrsh7th/nvim-cmp",
+    commit = "b356f2c",
     event = "InsertEnter",
     dependencies = {
       { "L3MON4D3/LuaSnip" },
@@ -196,6 +197,11 @@ return {
           --     settings = { implicitProjectConfiguration = { checkJs = true } },
           --   })
           -- end,
+          tsserver = function()
+            require("lspconfig").tsserver.setup({
+              filetypes = { "typescript", "javascript", "typescriptreact", "typescript.tsx" },
+            })
+          end,
           lua_ls = function()
             -- (Optional) Configure lua language server for neovim
             local lua_opts = lsp_zero.nvim_lua_ls()
@@ -217,7 +223,7 @@ return {
             })
             -- ts/js/vue
             require("lspconfig").volar.setup({
-              filetypes = { "vue" },
+              filetypes = { "vue", "typescript" },
               -- enable "take over mode" for typescript files as well: https://github.com/johnsoncodehk/volar/discussions/471
               -- filetypes = { "typescript", "javascript", "vue" },
             })
