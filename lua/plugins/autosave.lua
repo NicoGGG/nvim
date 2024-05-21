@@ -1,7 +1,7 @@
 return {
   "okuuva/auto-save.nvim",
   cmd = "ASToggle", -- optional for lazy loading on command
-  event = { "InsertLeave" }, -- optional for lazy loading on trigger events
+  event = { "InsertLeave" },
   opts = {
     condition = function(buf)
       local fn = vim.fn
@@ -12,6 +12,11 @@ return {
       end
       return true
     end, -- Option to disable autosave on all non-normal buffers
+    trigger_events = {
+      immediate_save = { "BufLeave", "FocusLost" },
+      defer_save = { "InsertLeave" },
+      cancel_defered_save = { "InsertEnter" },
+    },
   },
 
   keys = {
