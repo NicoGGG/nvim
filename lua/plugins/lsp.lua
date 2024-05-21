@@ -185,6 +185,7 @@ return {
           "marksman",
           "bashls",
           "html",
+          "cssls",
           "htmx",
           "ansiblels",
           "docker_compose_language_service",
