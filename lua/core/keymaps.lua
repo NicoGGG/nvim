@@ -5,8 +5,10 @@ local map = vim.api.nvim_set_keymap
 local opts = { silent = true, noremap = true }
 
 -- -- Basic operations
--- Save with leader w to avoid mistyping ":"
+-- Save with leader w
 map("n", "<leader>w", "<cmd>w<CR>", opts)
+-- Quit with leader q
+map("n", "<leader>q", "<cmd>q<CR>", opts)
 -- Disable highlights
 map("n", "<leader><CR>", "<cmd>noh<CR>", opts)
 -- Paste without copying the deleted text when in visualmode

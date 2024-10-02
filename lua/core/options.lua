@@ -32,3 +32,12 @@ vim.opt.inccommand = "split"
 
 vim.opt.ignorecase = true
 vim.opt.termguicolors = true
+
+vim.diagnostic.config({
+  virtual_text = {
+    source = true,
+  },
+  float = {
+    source = true,
+  },
+})
