@@ -25,7 +25,7 @@ return {
         },
         {
           name = "work",
-          path = "~/Workspace/obsidian/equidia",
+          path = "~/Workspace/obsidian/winamax",
         },
       },
       daily_notes = {
