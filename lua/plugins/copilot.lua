@@ -4,7 +4,7 @@ return {
   event = "InsertEnter",
   opts = {
     suggestion = {
-      auto_trigger = true,
+      auto_trigger = false,
     },
   },
 }
