@@ -193,13 +193,8 @@ return {
         },
         handlers = {
           lsp_zero.default_setup,
-          -- tsserver = function()
-          --   require("lspconfig").tsserver.setup({
-          --     settings = { implicitProjectConfiguration = { checkJs = true } },
-          --   })
-          -- end,
           ts_ls = function()
-            require("lspconfig").ts_ls.setup()
+            require("lspconfig").ts_ls.setup({})
           end,
           lua_ls = function()
             -- (Optional) Configure lua language server for neovim
