@@ -78,6 +78,31 @@ return {
     name = "catppuccin",
     opts = {
       transparent_background = true,
+      term_colors = true,
+      integrations = {
+        alpha = true,
+        aerial = true,
+        diffview = true,
+        dap = true,
+        dap_ui = true,
+        mason = true,
+        neotree = true,
+        notify = true,
+        nvimtree = false,
+        semantic_tokens = true,
+        symbols_outline = true,
+        telescope = true,
+        ts_rainbow = false,
+        which_key = true,
+      },
+      -- Hello
+      -- NOTE: Hello
+      -- TODO:
+      -- WARN:
     },
+  },
+  {
+    "xiyaowong/transparent.nvim",
+    lazy = false,
   },
 }

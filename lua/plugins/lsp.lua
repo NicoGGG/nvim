@@ -179,7 +179,7 @@ return {
           "lua_ls",
           "pyright",
           "gopls",
-          "tsserver",
+          "ts_ls",
           "volar",
           "rust_analyzer",
           "marksman",
@@ -198,10 +198,8 @@ return {
           --     settings = { implicitProjectConfiguration = { checkJs = true } },
           --   })
           -- end,
-          tsserver = function()
-            require("lspconfig").tsserver.setup({
-              filetypes = { "typescript", "javascript", "typescriptreact", "typescript.tsx" },
-            })
+          ts_ls = function()
+            require("lspconfig").ts_ls.setup()
           end,
           lua_ls = function()
             -- (Optional) Configure lua language server for neovim

@@ -1,5 +1,7 @@
 vim.cmd.colorscheme("catppuccin")
 
+local transparent = require("transparent")
+transparent.clear_prefix("NeoTree")
 -- -- Configs for colorschemes transparency (configure in the theme config if possible)
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
