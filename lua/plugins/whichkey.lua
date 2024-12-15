@@ -15,6 +15,7 @@ return {
   },
   config = function()
     local wk = require("which-key")
+    local ts = require("telescope.builtin")
 
     wk.add({
       { "<leader><F5>", desc = "Undo tree" },
@@ -28,6 +29,8 @@ return {
       { "<leader>f", group = "[F]ind with Telescope" },
       { "<leader>g", group = "[G]it" },
       { "<leader>gg", desc = "Lazy[G]it" },
+      { "<leader>gc", ts.git_commits, desc = "Git [C]ommits" },
+      { "<leader>gb", ts.git_bcommits, desc = "Git [B]uffer Commits" },
       { "<leader>h", group = "[H]arpoon" },
       { "<leader>ha", desc = "Harpoon [A]dd Current File" },
       { "<leader>hh", desc = "List [H]ooks" },
