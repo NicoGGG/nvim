@@ -1,7 +1,10 @@
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("catppuccin-mocha")
 
-local transparent = require("transparent")
-transparent.clear_prefix("NeoTree")
+-- NOTE: If the colorscheme doesn't have a native transparent option, use this plugin
+-- local transparent = require("transparent")
+-- transparent.clear_prefix("NeoTree")
+-- transparent.clear_prefix("lualine")
+
 -- -- Configs for colorschemes transparency (configure in the theme config if possible)
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })

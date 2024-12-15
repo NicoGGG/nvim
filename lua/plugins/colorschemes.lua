@@ -80,19 +80,34 @@ return {
       transparent_background = true,
       term_colors = true,
       integrations = {
-        alpha = true,
-        aerial = true,
+        -- aerial = true, -- TODO: install this or outline
         diffview = true,
-        dap = true,
-        dap_ui = true,
         mason = true,
-        neotree = true,
+        native_lsp = {
+          enabled = true,
+          virtual_text = {
+            errors = { "italic" },
+            hints = { "italic" },
+            warnings = { "italic" },
+            information = { "italic" },
+            ok = { "italic" },
+          },
+          underlines = {
+            errors = { "underline" },
+            hints = { "underline" },
+            warnings = { "underline" },
+            information = { "underline" },
+            ok = { "underline" },
+          },
+          inlay_hints = {
+            background = true,
+          },
+        },
+        neotest = true,
         notify = true,
-        nvimtree = false,
-        semantic_tokens = true,
-        symbols_outline = true,
+        nvim_surround = true,
+        -- symbols_outline = true, -- TODO: install this or aerial
         telescope = true,
-        ts_rainbow = false,
         which_key = true,
       },
       -- Hello
@@ -101,8 +116,9 @@ return {
       -- WARN:
     },
   },
-  {
-    "xiyaowong/transparent.nvim",
-    lazy = false,
-  },
+  -- {
+  --   NOTE: Alternative to colorscheme native transparent if not present
+  --   "xiyaowong/transparent.nvim",
+  --   lazy = false,
+  -- },
 }
