@@ -42,10 +42,12 @@ return {
       { "<leader>s", group = "Auto[s]ave" },
       { "<leader>sD", desc = "[D]iscard All Changes and Quit Buffer" },
       { "<leader>st", desc = "[T]oggle Autosave" },
+      { "<leader>t", group = "[T]erminal" },
       { "<leader>v", group = "[V]env" },
       { "<leader>vc", desc = "[C]ached Venv" },
       { "<leader>vs", desc = "[S]elect Venv" },
-      { "<leader>w", desc = "Save Current Buffer" },
+      { "<leader>w", desc = "[W]rite Current Buffer" },
+      { "<leader>y", group = "[Y]anking" },
     })
   end,
 }

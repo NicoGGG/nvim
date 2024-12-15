@@ -12,11 +12,11 @@ return {
       })
 
       require("telescope").load_extension("fzf")
-
     end,
     keys = function()
       local ts = require("telescope.builtin")
-      local custom = require("config.telescope.custom")
+      ---@diagnostic disable-next-line: different-requires
+      local custom = require("custom.telescope")
       return {
         { "<leader>fb", ts.buffers, desc = "[F]ind [B]uffers" },
         { "<leader>fh", ts.help_tags, desc = "[F]ind [H]elp" },
