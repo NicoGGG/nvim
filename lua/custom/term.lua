@@ -1,13 +1,21 @@
-local term_id = 0
-vim.keymap.set("n", "<leader>tn", function()
-  vim.cmd.new()
-  vim.cmd.term()
-  vim.api.nvim_win_set_height(0, 15)
+local term_id = nil
+local cwd = nil
+local new_term = function()
+  if not cwd then
+    local current_buffer = vim.api.nvim_get_current_buf()
+    local file_path = vim.api.nvim_buf_get_name(current_buffer)
+    cwd = vim.fn.fnamemodify(file_path, ":p:h")
+  end
 
+  Snacks.terminal.toggle(nil, { cwd = cwd })
   term_id = vim.bo.channel
-end, { desc = "[T]erminal [N]ew" })
+  vim.api.nvim_win_set_height(0, 15)
+end
 
-vim.keymap.set("t", "<C-n>", [[<C-\><C-n>]])
+-- -- Terminal Mappings
+vim.keymap.set({ "n", "t" }, "<C-_>", function()
+  new_term()
+end, { desc = "Toggle Terminal" })
 
 -- This is an example shortcut to send to the terminal
 vim.keymap.set("n", "<leader>tl", function()
