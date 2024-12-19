@@ -1,36 +1,90 @@
-local term_id = nil
-local cwd = nil
-local new_term = function()
-  if not cwd then
-    local current_buffer = vim.api.nvim_get_current_buf()
-    local file_path = vim.api.nvim_buf_get_name(current_buffer)
-    cwd = vim.fn.fnamemodify(file_path, ":p:h")
-  end
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")
 
-  Snacks.terminal.toggle(nil, { cwd = cwd })
-  term_id = vim.bo.channel
-  vim.api.nvim_win_set_height(0, 15)
+local term_state = {
+  split = {
+    buf = -1,
+    win = -1,
+  },
+  floating = {
+    buf = -1,
+    win = -1,
+  },
+}
+--- Creates a floating or split window.
+--- @param type string: "split" or "floating" - default "split"
+--- @return table: A table containing `buf` (buffer handle) and `win` (window handle).
+local function create_window(type)
+  if type ~= "floating" and type ~= "split" then
+    return {}
+  end
+  local win_opts = {}
+  local editor_width = vim.o.columns
+  local editor_height = vim.o.lines
+  if type == "split" then
+    local split_direction = "below"
+    local height_ratio = 0.22
+    local win_height = math.floor(editor_height * height_ratio)
+    win_opts = {
+      height = win_height,
+      split = split_direction,
+    }
+  else
+    local height_ratio = 0.8
+    local width_ratio = 0.8
+
+    local win_height = math.floor(editor_height * height_ratio)
+    local win_width = math.floor(editor_width * width_ratio)
+    local row = math.floor((editor_height - win_height) / 2)
+    local col = math.floor((editor_width - win_width) / 2)
+    win_opts = {
+      relative = "editor",
+      width = win_width,
+      height = win_height,
+      row = row,
+      col = col,
+      style = "minimal",
+      border = "rounded",
+    }
+  end
+  local buf = nil
+  if vim.api.nvim_buf_is_valid(term_state[type].buf) then
+    buf = term_state[type].buf
+  else
+    buf = vim.api.nvim_create_buf(false, true) -- nofile, scratch buffer
+  end
+  local win = vim.api.nvim_open_win(buf, true, win_opts)
+
+  return { buf = buf, win = win }
 end
 
+local toggle_split_terminal = function()
+  if not vim.api.nvim_win_is_valid(term_state.split.win) then
+    term_state.split = create_window("split")
+    if vim.bo[term_state.split.buf].buftype ~= "terminal" then
+      vim.cmd.term()
+    end
+  else
+    vim.api.nvim_win_hide(term_state.split.win)
+  end
+end
+
+local toggle_floating_terminal = function()
+  if not vim.api.nvim_win_is_valid(term_state.floating.win) then
+    term_state.floating = create_window("floating")
+    if vim.bo[term_state.floating.buf].buftype ~= "terminal" then
+      vim.cmd.term()
+    end
+  else
+    vim.api.nvim_win_hide(term_state.floating.win)
+  end
+end
+
+vim.api.nvim_create_user_command("Floaterminal", toggle_floating_terminal, {})
+vim.api.nvim_create_user_command("Spliterminal", toggle_split_terminal, {})
+
 -- -- Terminal Mappings
-vim.keymap.set({ "n", "t" }, "<C-_>", function()
-  new_term()
-end, { desc = "Toggle Terminal" })
-
--- This is an example shortcut to send to the terminal
-vim.keymap.set("n", "<leader>tl", function()
-  vim.fn.chansend(term_id, { "ls\r" })
-end, { desc = "[T]erminal [L]S" })
-
--- Rerun last command
-vim.keymap.set("n", "<leader>tr", function()
-  vim.fn.chansend(term_id, { "\x1b\x5b\x41\r\n" })
-end, { desc = "[T]erminal [R]erun last command" })
-
--- Winamax specific: yarn lint
-vim.keymap.set("n", "<leader>twl", function()
-  vim.fn.chansend(term_id, { "yarn lint\r" })
-end, { desc = "[T]erminal [W]inamax yarn [L]int" })
+vim.keymap.set({ "n", "t" }, "<leader>tf", "<CMD>Floaterminal<CR>", { desc = "Toggle [T]erminal [F]loating" })
+vim.keymap.set({ "n", "t" }, "<C-_>", "<CMD>Spliterminal<CR>", { desc = "Toggle [T]erminal [S]plit" })
 
 vim.api.nvim_create_autocmd("TermOpen", {
   group = vim.api.nvim_create_augroup("term-open", { clear = true }),
@@ -39,3 +93,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.opt.relativenumber = false
   end,
 })
+
+-- -- This is an example shortcut to send to the terminal. NOTE: need to make channel work. Not needed for now
+-- vim.keymap.set("n", "<leader>tfl", function()
+--   vim.fn.chansend(term_state.floating.term_id, { "ls\r" })
+-- end, { desc = "[T]erminal [L]S" })
