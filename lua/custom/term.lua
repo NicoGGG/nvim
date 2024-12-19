@@ -83,7 +83,7 @@ vim.api.nvim_create_user_command("Floaterminal", toggle_floating_terminal, {})
 vim.api.nvim_create_user_command("Spliterminal", toggle_split_terminal, {})
 
 -- -- Terminal Mappings
-vim.keymap.set({ "n", "t" }, "<leader>tf", "<CMD>Floaterminal<CR>", { desc = "Toggle [T]erminal [F]loating" })
+vim.keymap.set({ "n" }, "<leader>tf", "<CMD>Floaterminal<CR>", { desc = "Toggle [T]erminal [F]loating" })
 vim.keymap.set({ "n", "t" }, "<C-_>", "<CMD>Spliterminal<CR>", { desc = "Toggle [T]erminal [S]plit" })
 
 vim.api.nvim_create_autocmd("TermOpen", {
