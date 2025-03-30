@@ -34,13 +34,16 @@ git clone https://github.com/NicoGGG/nvim.git
 
 ## External tools to install
 
-### Node18
+### Node20
 
-Many plugins need nodejs to work. The simplest is to install with nvm (Not at all a confusing name with nvim)
+Many plugins need nodejs to work. The simplest is to install with asdf
+
+[Install asdf](https://asdf-vm.com/guide/getting-started.html)
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-nvm install 20
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf install nodejs latest
+asdf global nodejs latest
 ```
 
 ### Nerd font
@@ -177,5 +180,5 @@ echo "\n# .local/bin to PATH\nexport PATH=\$PATH:$HOME/.local/bin"  >> $HOME/.zs
 - [x] Which key for keymap helpers
 - [x] More LSP/Formatter: html, django, javascript/typescript, heredoc
 - [ ] Try to use none-ls for formatting, using lspconfig and mason instead of outside installation and configuration with Neoformat
-- [ ] Try to improve the file diff view in lazygit because right now it's hard to visualize all the changes in a file
+- [x] Try to improve the file diff view in lazygit because right now it's hard to visualize all the changes in a file
 - [ ] Debugger for python and go

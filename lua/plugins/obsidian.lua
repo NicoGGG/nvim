@@ -68,5 +68,6 @@ return {
     nmap("<leader>ow", "<CMD>ObsidianWorkspace<CR>", "Obsidian Change [W]orkspace")
     nmap("<leader>ol", "<CMD>ObsidianTags<CR>", "Obsidian [L]ist Tags")
     nmap("<leader>of", "<CMD>ObsidianFollowLink<CR>", "Obsidian [F]ollow Link")
+    nmap("<leader>oc", "<CMD>ObsidianTOC<CR>", "Obsidian Table of [C]ontent")
   end,
 }
