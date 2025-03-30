@@ -59,11 +59,17 @@ return {
           -- section_separators = { left = "", right = "" }, -- defaults
         },
         sections = {
-          lualine_a = { "mode" },
+          lualine_a = { "" },
           lualine_b = { "buffers" },
           lualine_c = { "branch", "diff", "diagnostics" },
           lualine_x = { "filename" },
           lualine_y = { "filetype" },
+          lualine_z = {
+            {
+              require("noice").api.statusline.mode.get,
+              cond = require("noice").api.statusline.mode.has,
+            },
+          },
         },
       })
     end,
