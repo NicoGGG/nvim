@@ -158,6 +158,17 @@ return {
 
         -- See `:help K` for why this keymap
         nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+        nmap("<leader>k", function()
+          vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = false })
+
+          vim.api.nvim_create_autocmd("CursorMoved", {
+            group = vim.api.nvim_create_augroup("line-diagnostics", { clear = true }),
+            callback = function()
+              vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
+              return true
+            end,
+          })
+        end)
         nmap("<leader>cs", vim.lsp.buf.signature_help, "[S]ignature Documentation")
 
         -- Code navigation
