@@ -8,6 +8,9 @@ return {
       -- Disable automatic setup, we are doing it manually
       vim.g.lsp_zero_extend_cmp = 0
       vim.g.lsp_zero_extend_lspconfig = 0
+      -- Reserve a space in the gutter
+      -- This will avoid an annoying layout shift in the screen
+      vim.opt.signcolumn = "yes"
     end,
   },
   {
@@ -149,7 +152,6 @@ return {
 
           vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
         end
-
         -- Diagnostic keymaps
         nmap("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic message")
         nmap("]d", vim.diagnostic.goto_next, "Go to next diagnostic message")
