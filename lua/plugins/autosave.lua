@@ -1,6 +1,7 @@
 return {
   "okuuva/auto-save.nvim",
   cmd = "ASToggle", -- optional for lazy loading on command
+  enable = false,
   event = { "InsertLeave", "TextChanged" },
   opts = {
     condition = function(buf)
