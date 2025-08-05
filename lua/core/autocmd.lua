@@ -12,16 +12,3 @@ api.nvim_create_autocmd(
   "BufReadPost",
   { command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] }
 )
-
-api.nvim_create_autocmd("User", {
-  pattern = "TelescopeFindPre",
-  callback = function()
-    vim.opt_local.winborder = "none"
-    vim.api.nvim_create_autocmd("WinLeave", {
-      once = true,
-      callback = function()
-        vim.opt_local.winborder = "rounded"
-      end,
-    })
-  end,
-})
